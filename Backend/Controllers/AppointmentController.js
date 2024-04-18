@@ -21,7 +21,7 @@ exports.getAppointmentById = async (req, res) =>
 {
     try
     {
-        const id = req.params.id;
+        const {id} = req.params;
         const appointment = await Appointment.findById(id);
         return res.status(202).json({status: 'Success',result: appointment,data: { appointment }})    
     }
@@ -52,7 +52,7 @@ exports.updateAppointment = async (req, res) => {
 
     try
     {
-        const id = req.params.id;
+        const {id} = req.params;
         const appointment = await Appointment.findByIdAndUpdate(id,req.body,{
             new : true
         })
